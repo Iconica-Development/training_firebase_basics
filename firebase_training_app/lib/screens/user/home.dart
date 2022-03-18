@@ -12,65 +12,21 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final TextEditingController _postController = TextEditingController();
   List<String> posts = [];
   @override
   void initState() {
     super.initState();
     () async {
-      // Using get()
-      // var res = await FirebaseDatabase.instance.ref().child('posts').get();
-      // Map data = res.value as Map;
-      // for (String post in data.values) {
-      //   setState(() {
-      //     posts.add(post);
-      //   });
-      // }
-
-      // Using once()
-      // var res = await FirebaseDatabase.instance.ref().child('posts').once();
-      // Map data = res.snapshot.value as Map;
-      // for (String post in data.values) {
-      //   setState(() {
-      //     posts.add(post);
-      //   });
-      // }
-
       // Using onValue
-      // FirebaseDatabase.instance.ref().child('posts').onValue.listen((event) {
-      //   Map data = event.snapshot.value as Map;
-      //   setState(() {
-      //     posts.add(data.values.first);
-      //   });
-      // });
-
-      // Removing a value
-      // FirebaseDatabase.instance
-      // .ref()
-      // .child('posts')
-      // .child('-Mrehrejhrjh')
-      // .remove();
-
-      // Running a transaction
       FirebaseDatabase.instance
           .ref()
-          .child('posts/-Mrehrejhrjh')
-          .runTransaction((Object? post) {
-        if (post == null) {
-          return Transaction.abort();
-        }
-
-        Map<String, dynamic> newPost = {};
-
-        try {
-          newPost = Map<String, dynamic>.from(post as Map);
-        } catch (e) {
-          String _post = post as String;
-
-          newPost['value'] = _post;
-          newPost['likes'] = 0;
-        }
-
-        return Transaction.success(newPost);
+          .child('posts')
+          .onChildAdded
+          .listen((event) {
+        setState(() {
+          posts.add(event.snapshot.value as String);
+        });
       });
     }();
   }
@@ -78,27 +34,88 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: Text(
           'Hi, ${FirebaseAuth.instance.currentUser!.email!.split('@').first}',
         ),
       ),
       body: Center(
-        child: Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16.0,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              for (String post in posts) ...[
-                Text(post),
-                const Divider(),
-              ]
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height - 200,
+              width: MediaQuery.of(context).size.width,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    for (String post in posts) ...[
+                      Text(post),
+                      const Divider(),
+                    ],
+                  ],
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                showAddPostDialog();
+              },
+              child: const Text('Add post'),
+            )
+          ],
         ),
       ),
+    );
+  }
+
+  showAddPostDialog() {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return Material(
+          color: Colors.black54,
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: 200,
+            child: Row(
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+                SizedBox(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  child: TextField(
+                    controller: _postController,
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+                SizedBox(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      FirebaseDatabase.instance.ref().child('posts').push().set(
+                            _postController.text,
+                          );
+                      _postController.clear();
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('Post'),
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

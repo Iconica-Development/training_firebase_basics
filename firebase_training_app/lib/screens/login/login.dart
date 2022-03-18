@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_training/screens/login/registration.dart';
 import 'package:firebase_training/screens/user/home.dart';
@@ -21,15 +22,15 @@ class _LoginState extends State<Login> {
   void initState() {
     super.initState();
     // Fast skip login
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
-      FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: 'niels@iconica.nl', password: 'test123');
-      Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(
-            builder: (context) => const Home(),
-          ),
-          (route) => false);
-    });
+    // WidgetsBinding.instance?.addPostFrameCallback((_) {
+    //   FirebaseAuth.instance.signInWithEmailAndPassword(
+    //       email: 'niels@iconica.nl', password: 'test123');
+    //   Navigator.of(context).pushAndRemoveUntil(
+    //       MaterialPageRoute(
+    //         builder: (context) => const Home(),
+    //       ),
+    //       (route) => false);
+    // });
   }
 
   @override
