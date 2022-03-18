@@ -12,24 +12,25 @@
 - Context
 - Setup
 - Authentication
+- Realtime Database
 - DIY
 
 ---
 ### Agenda day 2
-- Realtime Database
 - Cloud Firestore
 - Cloud Storage
+- CLI
 - Cloud Hosting
 - App Distribution
+- Emulators
 - DIY
 
 ---
 ### Agenda day 3
-- CLI
-- Emulators
 - Google Cloud
 - Cloud Functions
 - Security
+- Extensions
 - DIY
 
 ---

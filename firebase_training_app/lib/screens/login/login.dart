@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_training/screens/login/registration.dart';
 import 'package:firebase_training/screens/user/home.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +21,7 @@ class _LoginState extends State<Login> {
   @override
   void initState() {
     super.initState();
+
     // Fast skip login
     // WidgetsBinding.instance?.addPostFrameCallback((_) {
     //   FirebaseAuth.instance.signInWithEmailAndPassword(

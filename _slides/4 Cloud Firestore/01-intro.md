@@ -30,6 +30,7 @@
 ---
 ### Setup (3)
 <img src="../images/cfs-setup-3.png">
+<img src="../images/cfs-setup.png">
 
 ---
 ### Data types

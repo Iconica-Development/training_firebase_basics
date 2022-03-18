@@ -1,4 +1,4 @@
-# CLI
+# Extensions
 ---
 
 ### Introduction
