@@ -22,7 +22,7 @@ New testers first download a profile to deliver their device identifier. You (as
 ---
 ### Delivery
 - Testers can get invited and notified by email
-- Testers can join the tester using a special link
+- Testers can join the test using a special link
 
 ---
 ### DIY

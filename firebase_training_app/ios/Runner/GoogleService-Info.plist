@@ -30,5 +30,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:437060335509:ios:56006b794478b4e7ff289c</string>
+	<key>DATABASE_URL</key>
+	<string>https://fir-training-b5da5-default-rtdb.europe-west1.firebasedatabase.app</string>
 </dict>
 </plist>

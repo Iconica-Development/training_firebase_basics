@@ -22,7 +22,6 @@
 - CLI
 - Cloud Hosting
 - App Distribution
-- Emulators
 - DIY
 
 ---

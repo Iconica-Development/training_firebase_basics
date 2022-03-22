@@ -25,7 +25,7 @@
 
 - In flutter, in case of an image you can use the Image.network() widget
 
-- CORS needs to be configured in the Firebase console for this to work for web apps
+- CORS needs to be configured in the Firebase console for this to work with web apps
 
 ---
 ### Upload

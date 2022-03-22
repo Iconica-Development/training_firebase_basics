@@ -1,7 +1,6 @@
-import 'dart:convert';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_training/screens/user/add_post.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -12,12 +11,17 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final TextEditingController _postController = TextEditingController();
-  List<String> posts = [];
+  List<Map> posts = [];
+  Map users = {};
   @override
   void initState() {
     super.initState();
     () async {
+      print('retrieving');
+      var res = await FirebaseDatabase.instance.ref().child('users').get();
+      print("done");
+      print(res);
+      users = res.value as Map<dynamic, dynamic>;
       // Using onValue
       FirebaseDatabase.instance
           .ref()
@@ -25,7 +29,9 @@ class _HomeState extends State<Home> {
           .onChildAdded
           .listen((event) {
         setState(() {
-          posts.add(event.snapshot.value as String);
+          posts.add(
+            (event.snapshot.value as Map<dynamic, dynamic>),
+          );
         });
       });
     }();
@@ -45,77 +51,101 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height - 200,
+              height: MediaQuery.of(context).size.height - 150,
               width: MediaQuery.of(context).size.width,
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    for (String post in posts) ...[
-                      Text(post),
-                      const Divider(),
+                    for (Map post in posts) ...[
+                      if (post['text'] != null)
+                        Container(
+                          height: 150,
+                          width: MediaQuery.of(context).size.width,
+                          padding: const EdgeInsets.only(
+                            bottom: 20,
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          child: Row(
+                            children: [
+                              Column(
+                                children: [
+                                  const Spacer(),
+                                  Text(
+                                    '${users[post['by']]['name']}',
+                                  ),
+                                  Container(
+                                    height: 60,
+                                    width: 60,
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.red,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        '${users[post['by']]['name'][0]}',
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 35,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                ],
+                              ),
+                              const Spacer(),
+                              Column(
+                                children: [
+                                  const Spacer(),
+                                  Text(
+                                    post['text'],
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  if (post.containsKey('image'))
+                                    SizedBox(
+                                      height: 100,
+                                      child: Image.network(
+                                        post['image'],
+                                      ),
+                                    ),
+                                  if (post.containsKey('image')) const Spacer(),
+                                ],
+                              ),
+                              const Spacer(),
+                            ],
+                          ),
+                        ),
                     ],
                   ],
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                showAddPostDialog();
-              },
-              child: const Text('Add post'),
-            )
+            SizedBox(
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const AddPost();
+                      },
+                    ),
+                  );
+                },
+                child: const Text('Add post'),
+              ),
+            ),
+            const Spacer(),
           ],
         ),
       ),
-    );
-  }
-
-  showAddPostDialog() {
-    return showDialog(
-      context: context,
-      builder: (context) {
-        return Material(
-          color: Colors.black54,
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: 200,
-            child: Row(
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.1,
-                ),
-                SizedBox(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width * 0.4,
-                  child: TextField(
-                    controller: _postController,
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.1,
-                ),
-                SizedBox(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width * 0.3,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      FirebaseDatabase.instance.ref().child('posts').push().set(
-                            _postController.text,
-                          );
-                      _postController.clear();
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text('Post'),
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.1,
-                ),
-              ],
-            ),
-          ),
-        );
-      },
     );
   }
 }

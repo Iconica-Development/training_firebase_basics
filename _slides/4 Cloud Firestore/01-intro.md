@@ -95,19 +95,19 @@
 
 ---
 ### Limitations
-- Range filters on multple fields
+- Range filters on multiple fields
 - Logical OR queries
 - Not equal queries (can be achieved by using greater than and less than together)
 
 ---
 ### Converters
-Firestore referecens manipulate a ```Map<String, dynamic>``` by default. For this reason we lose type safety
+Firestore referecenes manipulate a ```Map<String, dynamic>``` by default. For this reason we lose type safety
 Using a converter we can convert the Map to a specific type and get type safety back
 
 <img src="../images/cfs-converters-1.png" height=200>
 <img src="../images/cfs-converters-2.png" width=600>
 
-This manipulates the behaviour of the query talkes about.
+This manipulates the behaviour of the query talked about.
 
 <img src="../images/cfs-converters-3.png" height=100>
 
