@@ -42,6 +42,6 @@
 <img src="../images/functions-3.png">
 
 ---
-### Admin sdk
+### Admin SDK
 <img src="../images/functions-5.png" height=400>
 <img src="../images/functions-4.png">

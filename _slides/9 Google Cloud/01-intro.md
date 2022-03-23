@@ -2,7 +2,7 @@
 ---
 
 - Cloud vendor (like AWS & Azure)
-- IaaS (Infrastructure as a Service) (VM etc)
+- IaaS (Infrastructure as a Service) (VM etc.)
 - PaaS (Platform as a Service) (OS's and other middleware)
 - SaaS (Software as a Service) (Everything available via the web)
 

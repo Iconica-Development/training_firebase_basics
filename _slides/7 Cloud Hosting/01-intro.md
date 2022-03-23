@@ -3,7 +3,7 @@
 
 ### Features
 - Google's own hosting service
-- SSL certifcates are included
+- SSL certificates are included
 - Support custom domains
 
 <img src="../images/hosting-1.png">

@@ -1,0 +1,5 @@
+Realtime
+Firestore
+Schemaless
+sharding
+XCode

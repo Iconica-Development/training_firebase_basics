@@ -101,10 +101,10 @@ Potential conflicts will be solved by the SDK.
 Firebase Realtime Database allows nesting up to 32 levels deep.
 
 But...
-Security is done at node level, when a user has acces to a node. He also has access to all child nodes.
+Security is done at node level, when a user has access to a node. He also has access to all child nodes.
 And when fetching data at a node, all child nodes will be included.
 
-Therefore an as flat as possible JSON structure is recommended!
+Therefore, an as flat as possible JSON structure is recommended!
 
 ---
 ### Example bad JSON
@@ -116,7 +116,7 @@ Therefore an as flat as possible JSON structure is recommended!
 
 ---
 ### Scaling
-Sometimes two-way relationship between two nodes is needed, Espacially when you have a lot of data.
+Sometimes two-way relationship between two nodes is needed, Especially when you have a lot of data.
 
 <img src="../images/rtdb-scaling.png" height=400>
 

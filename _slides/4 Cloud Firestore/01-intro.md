@@ -101,13 +101,13 @@
 
 ---
 ### Converters
-Firestore referecenes manipulate a ```Map<String, dynamic>``` by default. For this reason we lose type safety
+Firestore references manipulate a ```Map<String, dynamic>``` by default. For this reason we lose type safety
 Using a converter we can convert the Map to a specific type and get type safety back
 
 <img src="../images/cfs-converters-1.png" height=200>
 <img src="../images/cfs-converters-2.png" width=600>
 
-This manipulates the behaviour of the query talked about.
+This manipulates the behavior of the query talked about.
 
 <img src="../images/cfs-converters-3.png" height=100>
 

@@ -1,0 +1,23 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QIntroduction\nNiels Gorter\nIconica Development BV\nCase\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QAgenda day 3\nGoogle Cloud\nCloud Functions\nSecurity\nExtensions\nDIY\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QStates - authStateChanges\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QStates - idTokenChanges\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QStates - userChanges\\E$"}
+{"rule":"MASS_AGREEMENT","sentence":"^\\QDIY\nCreate a login screen\nSign in with email and password\nCatch potential errors\nOptional: Sign up, password reset, stay signed in, styling, more sign-in providers etc.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QOffline\nThe Firebase realtime database works offline and online.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QBasic operations - Reading using onValue\nFires when changes to child nodes are detected\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QData types\narray\nboolean\nbytes\ndate and time\nfloat\ngeo point\nint\nmap\nnull\nstring\nreference (document/collection)\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QQuerySnapshot\nReturned from a query on a Collection\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QDocumentSnapshot\nReturn from a query on a Document\\E$"}
+{"rule":"ATD_VERBS_TO_COLLOCATION","sentence":"^\\QConverters\nFirestore references manipulate a \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q by default.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QListing\nlist() & listAll() -> ListResult\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QListing\nlist() & listAll() → ListResult\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Qlist can be limited using ListOptions\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QURLs\nOften Firebase Storage is used as a CDN (Content Delivery Network) in applications\nThe getDownloadUrl() method returns a URL that can be used to retrieve the file.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QUpload\nputFile() (File from path_provider)\nputString() (String)\nputData() (Uint8List)\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QMetadata can be added using SettableMetadata\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QDownload\ngetData() (Uint8List)\nwriteToFile() (File)\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QTasks\nAll uploads and downloads are done using tasks\nTasks can be cancelled, paused and resumed using the corresponding methods\nTasks have a state and can be used to show progress\\E$"}
+{"rule":"MASS_AGREEMENT","sentence":"^\\QSetup\nMake sure the Firebase CLI is installed\n\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\n\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\n\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\n\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q (for running)\n\\E(?:Dummy|Ina|Jimmy-)[0-9]+$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QFeatures\nFaaS (Functions as a Service)\nNo server management\nScale based on load\nMonitoring, debugging and logging\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QCovered topics\nAuthentication\nRealtime database\nCloud Firestore\nCloud Storage\nCloud Hosting / App Distribution\nCloud Functions\nSecurity\nExtensions\nGoogle Cloud\\E$"}

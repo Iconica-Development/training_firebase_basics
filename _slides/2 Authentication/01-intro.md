@@ -1,4 +1,4 @@
-# Autentication
+# Authentication
 ---
 
 ### Firebase preparation
@@ -55,7 +55,7 @@
 ### Other sign in providers
 - Lots of sign in providers available
 - Need extra configuration for each provider
-- On pub.dev there are packages for some providers or a own implementation can be realized
+- On pub.dev there are packages for some providers or an own implementation can be realized
 
 - When social sign is used, Apple requires you to implement Apple's own sign in process
 

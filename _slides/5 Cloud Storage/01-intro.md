@@ -11,10 +11,10 @@
 
 ---
 ### Listing
-- list() & listAll() -> ListResult
+- list() & listAll() → ListResult
 
-- items -> Files in the bucket
-- prefixes -> Nested directories
+- items → Files in the bucket
+- prefixes → Nested directories
 
 - list can be limited using ListOptions
 
@@ -33,7 +33,7 @@
 - putString() (String)
 - putData() (Uint8List)
 
-- Meta data can be added using SettableMetadata
+- Metadata can be added using SettableMetadata
 
 ---
 ### Download

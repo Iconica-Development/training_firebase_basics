@@ -11,6 +11,6 @@
 ---
 ### Extra info
 - Not required
-- All excersises can be done seperately
+- All exercises can be done separately
 - Integration
  
