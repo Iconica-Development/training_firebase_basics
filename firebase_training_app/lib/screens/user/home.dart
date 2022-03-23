@@ -17,10 +17,7 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     () async {
-      print('retrieving');
       var res = await FirebaseDatabase.instance.ref().child('users').get();
-      print("done");
-      print(res);
       users = res.value as Map<dynamic, dynamic>;
       // Using onValue
       FirebaseDatabase.instance
