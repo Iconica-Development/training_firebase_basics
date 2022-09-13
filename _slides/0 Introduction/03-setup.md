@@ -25,6 +25,13 @@ https://console.firebase.google.com/u/0/
 <img src="../images/firebase-create-5.png">
 
 ---
+### As of late:
+<img src="../images/flutter-fire-1.png">
+
+---
+<img src="../images/flutter-fire-2.png">
+
+---
 ## Add Firebase to your project
 <img src="../images/firebase-add-1.png">
 
